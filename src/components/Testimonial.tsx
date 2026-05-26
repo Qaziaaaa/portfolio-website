@@ -21,8 +21,8 @@ export default function Testimonial() {
       </div>
       <div className="grid gap-6 md:grid-cols-3 max-w-screen-xl mx-auto px-4">
         {reasons.map((item, i) => (
-          <div key={i} className="self-stretch flex flex-col p-6 gap-4 border border-zinc-300 rounded-xl items-start text-left">
-            <div className="w-12 h-12 rounded-lg bg-black flex items-center justify-center">
+          <div key={i} className="self-stretch flex flex-col p-6 gap-4 border border-zinc-200 rounded-xl items-start text-left bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.25)] transition-shadow duration-300">
+            <div className="w-12 h-12 rounded-lg bg-black flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
               <item.icon className="w-6 h-6 text-white" />
             </div>
             <h5 className="text-lg font-bold">{item.title}</h5>
