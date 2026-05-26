@@ -1,25 +1,44 @@
 const projectSvg = (
-  <svg viewBox="0 0 240 180" className="w-full h-full p-6" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="120" cy="90" r="60" stroke="#a1a1aa" strokeWidth="1" strokeDasharray="4 4" />
-    <circle cx="120" cy="90" r="40" stroke="#a1a1aa" strokeWidth="1.5" />
-    <circle cx="120" cy="90" r="18" fill="#a1a1aa" fillOpacity="0.15" stroke="#a1a1aa" strokeWidth="2" />
-    <circle cx="120" cy="90" r="6" fill="#a1a1aa" />
-    <line x1="120" y1="30" x2="120" y2="50" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="120" y1="130" x2="120" y2="150" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="60" y1="90" x2="80" y2="90" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="160" y1="90" x2="180" y2="90" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="78" y1="58" x2="92" y2="72" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="148" y1="108" x2="162" y2="122" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="78" y1="122" x2="92" y2="108" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="148" y1="72" x2="162" y2="58" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-    <rect x="95" y="65" width="50" height="50" rx="8" stroke="#a1a1aa" strokeWidth="1.5" fill="#18181b" />
-    <path d="M105 90L115 100L135 80" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <circle cx="35" cy="40" r="3" fill="#a1a1aa" fillOpacity="0.4" />
-    <circle cx="205" cy="40" r="3" fill="#a1a1aa" fillOpacity="0.4" />
-    <circle cx="35" cy="140" r="3" fill="#a1a1aa" fillOpacity="0.4" />
-    <circle cx="205" cy="140" r="3" fill="#a1a1aa" fillOpacity="0.4" />
-    <line x1="30" y1="90" x2="15" y2="90" stroke="#a1a1aa" strokeWidth="1" strokeDasharray="2 2" />
-    <line x1="225" y1="90" x2="210" y2="90" stroke="#a1a1aa" strokeWidth="1" strokeDasharray="2 2" />
+  <svg viewBox="0 0 260 200" className="w-full h-full p-4" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#6366f1" stopOpacity="0.3" />
+        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.15" />
+      </linearGradient>
+      <linearGradient id="glowGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#6366f1" stopOpacity="0.15" />
+        <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+
+    <rect x="40" y="15" width="180" height="120" rx="10" stroke="#a1a1aa" strokeWidth="1.5" fill="#18181b" />
+    <rect x="40" y="15" width="180" height="120" rx="10" fill="url(#screenGrad)" />
+    <rect x="40" y="15" width="180" height="120" rx="10" fill="url(#glowGrad)" />
+
+    <rect x="50" y="28" width="20" height="2" rx="1" fill="#a1a1aa" fillOpacity="0.3" />
+    <rect x="50" y="35" width="14" height="2" rx="1" fill="#a1a1aa" fillOpacity="0.3" />
+    <circle cx="210" cy="30" r="2.5" fill="#a1a1aa" fillOpacity="0.3" />
+
+    <rect x="50" y="50" width="100" height="6" rx="3" fill="#6366f1" fillOpacity="0.7" />
+    <rect x="50" y="64" width="80" height="4" rx="2" fill="#a1a1aa" fillOpacity="0.3" />
+    <rect x="50" y="74" width="90" height="4" rx="2" fill="#a1a1aa" fillOpacity="0.2" />
+    <rect x="50" y="84" width="70" height="4" rx="2" fill="#a1a1aa" fillOpacity="0.2" />
+
+    <rect x="162" y="50" width="48" height="48" rx="6" stroke="#6366f1" strokeWidth="1" fill="none" />
+    <path d="M180 70L186 76L194 66" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="162" y="104" width="48" height="3" rx="1.5" fill="#a1a1aa" fillOpacity="0.15" />
+
+    <rect x="50" y="100" width="48" height="3" rx="1.5" fill="#a1a1aa" fillOpacity="0.15" />
+    <rect x="106" y="100" width="44" height="3" rx="1.5" fill="#a1a1aa" fillOpacity="0.15" />
+
+    <rect x="65" y="138" width="130" height="8" rx="4" stroke="#a1a1aa" strokeWidth="1.5" fill="#18181b" />
+    <rect x="100" y="146" width="60" height="3" rx="1.5" fill="#a1a1aa" fillOpacity="0.3" />
+    <rect x="115" y="152" width="30" height="2" rx="1" fill="#a1a1aa" fillOpacity="0.2" />
+
+    <circle cx="20" cy="60" r="6" fill="#6366f1" fillOpacity="0.2" />
+    <circle cx="20" cy="60" r="3" fill="#6366f1" fillOpacity="0.5" />
+    <circle cx="240" cy="140" r="5" fill="#6366f1" fillOpacity="0.15" />
+    <circle cx="240" cy="140" r="2" fill="#6366f1" fillOpacity="0.4" />
   </svg>
 )
 
