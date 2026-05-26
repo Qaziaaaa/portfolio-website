@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-20">
         <a href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
           <QLogo className="w-7 h-7 text-black" />
-          <p className="text-black text-xl font-bold">Qazi Farhan</p>
+          <p className="text-black text-xl font-bold">PORTFOLIO</p>
         </a>
         <button
           onClick={() => setIsOpen(!isOpen)}

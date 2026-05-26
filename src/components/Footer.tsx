@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
             <QLogo className="w-7 h-7 text-white" />
-            <p className="text-white text-xl font-bold">Qazi Farhan</p>
+            <p className="text-white text-xl font-bold">PORTFOLIO</p>
           </div>
           <div className="flex mt-4 md:m-0">
             <div className="-mx-4">
