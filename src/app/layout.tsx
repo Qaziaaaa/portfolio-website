@@ -10,7 +10,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: 'Qazi Farhan Ahmad | AI Web Developer & MERN Stack Expert',
   description: 'Qazi Farhan Ahmad is an AI Web Developer and MERN Stack Expert specializing in high-performance websites, AI-powered web applications, and scalable digital products. Based in Peshawar, Pakistan — open to internships, freelance, and full-time roles.',
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: '/logo.png' },
 }
 
 export default function RootLayout({
