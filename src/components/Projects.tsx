@@ -1,3 +1,23 @@
+const projectSvg = (
+  <svg viewBox="0 0 200 160" className="w-full h-full p-6" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="25" y="20" width="150" height="105" rx="10" stroke="#a1a1aa" strokeWidth="2" fill="#18181b" />
+    <circle cx="45" cy="40" r="4" fill="#ef4444" />
+    <circle cx="60" cy="40" r="4" fill="#eab308" />
+    <circle cx="75" cy="40" r="4" fill="#22c55e" />
+    <rect x="25" y="55" width="150" height="1" fill="#27272a" />
+    <rect x="35" y="68" width="90" height="5" rx="2" fill="#a1a1aa" opacity="0.4" />
+    <rect x="35" y="80" width="70" height="3" rx="1.5" fill="#52525b" />
+    <rect x="35" y="90" width="80" height="3" rx="1.5" fill="#52525b" />
+    <rect x="35" y="100" width="60" height="3" rx="1.5" fill="#52525b" />
+    <rect x="130" y="68" width="35" height="35" rx="4" stroke="#a1a1aa" strokeWidth="1.5" fill="#27272a" />
+    <path d="M142 86L147 91L155 80" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="40" y="112" width="120" height="1" fill="#27272a" />
+    <circle cx="50" cy="128" r="3" fill="#a1a1aa" opacity="0.5" />
+    <circle cx="62" cy="128" r="3" fill="#a1a1aa" opacity="0.5" />
+    <circle cx="74" cy="128" r="3" fill="#a1a1aa" opacity="0.5" />
+  </svg>
+)
+
 const projects = [
   {
     num: '01',
@@ -5,6 +25,7 @@ const projects = [
     desc: 'Production-grade MERN shopping platform — Stripe payments, OTP auth, real-time stock, admin panel.',
     reversed: false,
     link: 'https://ecommerce-store-one-ochre.vercel.app/',
+    svg: projectSvg,
   },
   {
     num: '02',
@@ -12,6 +33,7 @@ const projects = [
     desc: 'Full-stack MERN hiking app with trail discovery, authentication, admin dashboard, and blog.',
     reversed: true,
     link: 'https://hiking-app-puce.vercel.app/',
+    svg: projectSvg,
   },
   {
     num: '03',
@@ -19,6 +41,7 @@ const projects = [
     desc: 'Futuristic cyberpunk OS-inspired developer portfolio with cinematic animations.',
     reversed: false,
     link: 'https://qazixcode.netlify.app/',
+    svg: projectSvg,
   },
 ]
 
@@ -54,8 +77,8 @@ export default function Projects() {
             </div>
             <div className="mt-12 sm:mt-16 lg:mt-0">
               <div className="mx-4 md:mx-2 lg:relative lg:m-0 lg:h-full lg:px-0">
-                <div className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none bg-zinc-800 flex items-center justify-center" style={{ minHeight: '200px' }}>
-                  <span className="text-white text-lg">Project {proj.num}</span>
+                <div className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none bg-zinc-800 flex items-center justify-center overflow-hidden" style={{ minHeight: '200px' }}>
+                  {proj.svg}
                 </div>
               </div>
             </div>
