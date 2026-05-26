@@ -1,12 +1,17 @@
-const testimonials = [
-  { initial: 'C', quote: 'Every project is built with maintainability in mind — typed, documented, and structured for growth.', name: 'Clean, Scalable Code', role: 'Typed · Documented · Structured', center: false },
-  { initial: 'F', quote: 'I ship on time without cutting corners. Production-ready from day one.', name: 'Fast & Reliable Delivery', role: 'On Time · Production-Ready', center: true },
-  { initial: 'A', quote: 'I integrate AI tools — chatbots, automation, smart APIs — to give your product a real edge.', name: 'AI-Powered Solutions', role: 'Chatbots · Automation · Smart APIs', center: false },
+import { Code2, Rocket, Palette, Brain, ShieldCheck, MessageSquare } from 'lucide-react'
+
+const reasons = [
+  { icon: Code2, title: 'Clean, Scalable Code', desc: 'Every project is built with maintainability in mind — typed, documented, and structured for growth.' },
+  { icon: Rocket, title: 'Fast & Reliable Delivery', desc: 'I ship on time without cutting corners. Production-ready from day one.' },
+  { icon: Palette, title: 'Modern UI/UX Design', desc: 'Pixel-perfect interfaces that look great and feel intuitive on every device.' },
+  { icon: Brain, title: 'AI-Powered Solutions', desc: 'I integrate AI tools — chatbots, automation, smart APIs — to give your product a real edge.' },
+  { icon: ShieldCheck, title: 'Security-First Mindset', desc: 'JWT auth, CSRF protection, rate limiting, input validation — security is never an afterthought.' },
+  { icon: MessageSquare, title: 'Clear Communication', desc: 'You always know what\'s happening. Regular updates, honest timelines, no surprises.' },
 ]
 
 export default function Testimonial() {
   return (
-    <section className="px-2 md:py-[60px] md:px-20 pb-16">
+    <section className="px-2 md:py-[60px] md:px-20 pb-16" id="testimonials">
       <div className="relative flex flex-col text-center max-w-screen-sm px-4 mx-auto sm:px-6 p-8 md:pb-20">
         <p className="text-zinc-500 text-sm font-medium uppercase tracking-widest mb-2">Why Choose Me</p>
         <h2 className="text-black text-4xl font-normal md:text-5xl">
@@ -14,24 +19,14 @@ export default function Testimonial() {
         </h2>
         <p className="text-zinc-500 text-base mt-4 max-w-xl mx-auto">What you get when you work with Qazi Farhan Ahmad</p>
       </div>
-      <div className="grid gap-6 text-center md:grid-cols-3 lg:gap-12 max-w-screen-xl mx-auto px-4">
-        {testimonials.map((item, i) => (
-          <div
-            key={i}
-            className={`self-stretch flex flex-col py-[30px] px-[23px] gap-[18px] max-w-full border-solid border-zinc-500 rounded-xl shadow-lg items-center ${
-              item.center ? 'text-white bg-black' : ''
-            }`}
-          >
-            <div className="mb-6 flex justify-center">
-              <div className={`w-32 h-32 rounded-full flex items-center justify-center text-4xl font-bold ${
-                item.center ? 'bg-zinc-600' : 'bg-zinc-300'
-              }`}>
-                {item.initial}
-              </div>
+      <div className="grid gap-6 md:grid-cols-3 max-w-screen-xl mx-auto px-4">
+        {reasons.map((item, i) => (
+          <div key={i} className="self-stretch flex flex-col p-6 gap-4 border border-zinc-300 rounded-xl items-start text-left">
+            <div className="w-12 h-12 rounded-lg bg-black flex items-center justify-center">
+              <item.icon className="w-6 h-6 text-white" />
             </div>
-            <p className="mb-4">{item.quote}</p>
-            <h5 className="text-xl font-semibold">{item.name}</h5>
-            <h6 className={`font-semibold ${item.center ? 'text-zinc-300' : 'text-zinc-700'}`}>{item.role}</h6>
+            <h5 className="text-lg font-bold">{item.title}</h5>
+            <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
