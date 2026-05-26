@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+import QLogo from './QLogo'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,9 +15,9 @@ export default function Navbar() {
   return (
     <nav className="w-full top-0 left-0 z-50 fixed bg-white">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-20">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Image src="/favicon.svg" width={32} height={32} alt="Logo" />
-          <p className="text-black text-xl font-bold">PORTFOLIO</p>
+        <a href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
+          <QLogo className="w-7 h-7 text-black" />
+          <p className="text-black text-xl font-bold">Qazi Farhan</p>
         </a>
         <button
           onClick={() => setIsOpen(!isOpen)}
