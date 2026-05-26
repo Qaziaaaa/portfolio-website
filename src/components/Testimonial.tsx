@@ -21,12 +21,12 @@ export default function Testimonial() {
       </div>
       <div className="grid gap-6 md:grid-cols-3 max-w-screen-xl mx-auto px-4">
         {reasons.map((item, i) => (
-          <div key={i} className="self-stretch flex flex-col p-6 gap-4 border-2 border-black rounded items-start text-left bg-white">
-            <div className="w-10 h-10 flex items-center justify-center">
-              <item.icon className="w-6 h-6" />
+          <div key={i} className="self-stretch flex flex-col py-8 px-6 gap-5 border-2 border-black rounded items-center text-center bg-white">
+            <div className="w-14 h-14 rounded-full bg-black flex items-center justify-center">
+              <item.icon className="w-6 h-6 text-white" />
             </div>
             <h5 className="text-base font-bold">{item.title}</h5>
-            <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+            <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">{item.desc}</p>
           </div>
         ))}
       </div>
