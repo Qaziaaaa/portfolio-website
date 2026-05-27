@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="w-full top-0 left-0 z-50 fixed bg-white">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-20">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Image src="/logo.png" width={32} height={32} alt="Logo" />
+          <Image src="/logo.png" width={44} height={44} alt="Logo" />
           <p className="text-black text-xl font-bold">PORTFOLIO</p>
         </a>
         <button

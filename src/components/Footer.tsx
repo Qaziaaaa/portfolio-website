@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="container px-6 py-6 max-w-screen-xl mx-auto">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
-            <Image className="w-auto h-7" src="/logo.png" width={28} height={28} alt="Logo" />
+            <Image className="w-auto h-10" src="/logo.png" width={40} height={40} alt="Logo" />
             <p className="text-white text-xl font-bold">PORTFOLIO</p>
           </div>
           <div className="flex mt-4 md:m-0">

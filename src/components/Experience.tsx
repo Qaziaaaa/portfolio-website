@@ -23,7 +23,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section className="self-stretch bg-black overflow-hidden flex flex-row items-start justify-start md:py-[60px] md:px-20 max-w-full py-10">
+    <section className="self-stretch bg-black overflow-hidden flex flex-row items-start justify-start md:py-[60px] md:px-20 max-w-full py-10" id="experience">
       <div className="flex-1 overflow-hidden flex flex-col items-center py-0 md:px-8 box-border gap-[20px] max-w-full">
         <div className="self-stretch overflow-hidden flex flex-row items-center justify-center py-5 px-0 gap-[16px]">
           <p className="text-zinc-400 text-sm font-medium uppercase tracking-widest">Journey</p>
