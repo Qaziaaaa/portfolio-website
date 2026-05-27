@@ -13,12 +13,11 @@ export default function ScrollAnimations() {
     if (initRef.current) return
     initRef.current = true
 
-    const isDesktop = window.innerWidth >= 768
-    if (!isDesktop) return
+    const init = () => {
+      const isDesktop = window.innerWidth >= 768
+      if (!isDesktop) return
 
-    ScrollTrigger.refresh()
-
-    const sections = document.querySelectorAll('section[id]')
+      const sections = document.querySelectorAll('section[id]')
 
     sections.forEach((section) => {
       const id = section.id
@@ -202,10 +201,17 @@ export default function ScrollAnimations() {
       }
     })
 
-    ScrollTrigger.refresh()
+      ScrollTrigger.refresh()
 
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => st.kill())
+      return () => {
+        ScrollTrigger.getAll().forEach((st) => st.kill())
+      }
+    }
+
+    if (document.body.dataset.loaderDone === 'true') {
+      init()
+    } else {
+      window.addEventListener('loaderDone', init, { once: true })
     }
   }, [])
 

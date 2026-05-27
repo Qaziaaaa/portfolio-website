@@ -12,7 +12,11 @@ export default function Loader() {
     const t2 = setTimeout(() => setStep(2), 800)
     const t3 = setTimeout(() => setStep(3), 1300)
     const t4 = setTimeout(() => setStep(4), 1700)
-    const done = setTimeout(() => setShow(false), 2400)
+    const done = setTimeout(() => {
+      setShow(false)
+      document.body.dataset.loaderDone = 'true'
+      window.dispatchEvent(new CustomEvent('loaderDone'))
+    }, 2400)
 
     return () => {
       clearTimeout(t1)
