@@ -32,7 +32,7 @@ export default function Loader() {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black">
       <div className="flex flex-col items-center gap-6 mb-12">
-        <Image src="/logo.png" width={80} height={80} alt="Logo" className={`transition-all duration-700 ${step >= 1 ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} />
+        <Image src="/w-logo.png" width={80} height={80} alt="Logo" className={`transition-all duration-700 ${step >= 1 ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} />
         <p className={`text-white text-2xl font-bold tracking-tight transition-all duration-500 ${step >= 1 ? 'opacity-100' : 'opacity-0'}`}>Qazi Farhan Ahmad</p>
       </div>
 
