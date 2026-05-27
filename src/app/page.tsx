@@ -1,5 +1,5 @@
 import Navbar from '@/components/Navbar'
-import ScrollAnimations from '@/components/ScrollAnimations'
+// import ScrollAnimations from '@/components/ScrollAnimations'
 import Hero from '@/components/Hero'
 import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <ScrollAnimations />
+      {/* <ScrollAnimations /> */}
       <main className="space-y-10 pt-20">
         <Hero />
         <Skills />
