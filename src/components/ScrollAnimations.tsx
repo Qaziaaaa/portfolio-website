@@ -29,30 +29,32 @@ export default function ScrollAnimations() {
         const social = section.querySelector('.row > div:last-child')
         const img = section.querySelector('img')
 
-        gsap.set(lines, { y: 60, opacity: 0 })
-        gsap.to(lines, {
-          y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        lines.forEach((line, i) => {
+          gsap.set(line, { y: 60, opacity: 0 })
+          gsap.to(line, {
+            y: 0, opacity: 1, duration: 0.8, delay: i * 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: line, start: 'top 85%', toggleActions: 'play none none none' },
+          })
         })
         if (p) {
           gsap.set(p, { y: 40, opacity: 0 })
           gsap.to(p, {
-            y: 0, opacity: 1, duration: 0.8, delay: 0.5, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: p, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
         if (social) {
           gsap.set(social, { y: 30, opacity: 0 })
           gsap.to(social, {
-            y: 0, opacity: 1, duration: 0.6, delay: 0.7, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            y: 0, opacity: 1, duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: social, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
         if (img) {
           gsap.set(img, { x: 80, opacity: 0, scale: 0.95 })
           gsap.to(img, {
-            x: 0, opacity: 1, scale: 1, duration: 1, delay: 0.2, ease: 'power2.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            x: 0, opacity: 1, scale: 1, duration: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: img, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
       }
@@ -66,112 +68,109 @@ export default function ScrollAnimations() {
           gsap.set(img, { x: -80, opacity: 0 })
           gsap.to(img, {
             x: 0, opacity: 1, duration: 1, ease: 'power2.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: img, start: 'top 80%', toggleActions: 'play none none none' },
           })
         }
         if (heading) {
           gsap.set(heading, { x: 60, opacity: 0 })
           gsap.to(heading, {
             x: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: heading, start: 'top 80%', toggleActions: 'play none none none' },
           })
         }
-        if (paragraphs.length) {
-          gsap.set(paragraphs, { y: 40, opacity: 0 })
-          gsap.to(paragraphs, {
-            y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        paragraphs.forEach((p) => {
+          gsap.set(p, { y: 40, opacity: 0 })
+          gsap.to(p, {
+            y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: p, start: 'top 80%', toggleActions: 'play none none none' },
           })
-        }
+        })
       }
 
       if (id === 'skills') {
         const heading = section.querySelector('h2')
-        const cards = section.querySelectorAll('.grid > div')
-
         if (heading) {
           gsap.set(heading, { y: 40, opacity: 0 })
           gsap.to(heading, {
             y: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: heading, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (cards.length) {
-          gsap.set(cards, { y: 60, opacity: 0, scale: 0.85 })
-          gsap.to(cards, {
-            y: 0, opacity: 1, scale: 1, rotation: 0, duration: 0.6, stagger: 0.08,
-            ease: 'back.out(1.7)',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        const cards = section.querySelectorAll('.grid > div')
+        cards.forEach((card) => {
+          gsap.set(card, { y: 60, opacity: 0, scale: 0.85 })
+          gsap.to(card, {
+            y: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)',
+            scrollTrigger: { trigger: card, start: 'top 80%', toggleActions: 'play none none none' },
           })
-        }
+        })
       }
 
       if (id === 'experience') {
         const heading = section.querySelector('h2')
-        const cards = section.querySelectorAll('.border-zinc-500')
-
         if (heading) {
           gsap.set(heading, { opacity: 0 })
           gsap.to(heading, {
             opacity: 1, duration: 0.8, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: heading, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (cards.length) {
-          gsap.set(cards, { y: 80, opacity: 0 })
-          gsap.to(cards, {
-            y: 0, opacity: 1, duration: 0.9, stagger: 0.2, ease: 'power4.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        const cards = section.querySelectorAll('.border-zinc-500')
+        cards.forEach((card) => {
+          gsap.set(card, { y: 80, opacity: 0 })
+          gsap.to(card, {
+            y: 0, opacity: 1, duration: 0.9, ease: 'power4.out',
+            scrollTrigger: { trigger: card, start: 'top 80%', toggleActions: 'play none none none' },
           })
-        }
+        })
       }
 
       if (id === 'projects') {
         const heading = section.querySelector('h2')
-        const rows = section.querySelectorAll('.lg\\:grid')
-
         if (heading) {
           gsap.set(heading, { y: 40, opacity: 0 })
           gsap.to(heading, {
             y: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: heading, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (rows.length) {
-          gsap.set(rows, { y: 100, opacity: 0 })
-          gsap.to(rows, {
-            y: 0, opacity: 1, duration: 1, stagger: 0.3, ease: 'expo.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        const rows = section.querySelectorAll('.lg\\:grid')
+        rows.forEach((row) => {
+          gsap.set(row, { y: 100, opacity: 0 })
+          gsap.to(row, {
+            y: 0, opacity: 1, duration: 1, ease: 'expo.out',
+            scrollTrigger: { trigger: row, start: 'top 75%', toggleActions: 'play none none none' },
           })
-        }
+        })
       }
 
       if (id === 'testimonials') {
         const title = section.querySelector('h2')
-        const sub = section.querySelector('p')
-        const cards = section.querySelectorAll('.grid > div')
-
+        const ps = section.querySelectorAll('p')
         if (title) {
           gsap.set(title, { y: 30, opacity: 0 })
           gsap.to(title, {
             y: 0, opacity: 1, duration: 0.6, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: title, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (sub) {
-          gsap.set(sub, { y: 20, opacity: 0 })
-          gsap.to(sub, {
-            y: 0, opacity: 1, duration: 0.6, delay: 0.15, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        if (ps.length) {
+          ps.forEach((p) => {
+            gsap.set(p, { y: 20, opacity: 0 })
+            gsap.to(p, {
+              y: 0, opacity: 1, duration: 0.6, ease: 'power3.out',
+              scrollTrigger: { trigger: p, start: 'top 85%', toggleActions: 'play none none none' },
+            })
           })
         }
-        if (cards.length) {
-          gsap.set(cards, { y: 50, opacity: 0, scale: 0.9 })
-          gsap.to(cards, {
-            y: 0, opacity: 1, scale: 1, duration: 0.7, stagger: 0.1, ease: 'expo.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        const cards = section.querySelectorAll('.grid > div')
+        cards.forEach((card) => {
+          gsap.set(card, { y: 50, opacity: 0, scale: 0.9 })
+          gsap.to(card, {
+            y: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'expo.out',
+            scrollTrigger: { trigger: card, start: 'top 80%', toggleActions: 'play none none none' },
           })
-        }
+        })
       }
 
       if (id === 'contact') {
@@ -183,23 +182,23 @@ export default function ScrollAnimations() {
           gsap.set(heading, { y: 40, opacity: 0 })
           gsap.to(heading, {
             y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: heading, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (lines.length) {
-          gsap.set(lines, { x: 40, opacity: 0 })
-          gsap.to(lines, {
-            x: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        lines.forEach((line) => {
+          gsap.set(line, { x: 40, opacity: 0 })
+          gsap.to(line, {
+            x: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
+            scrollTrigger: { trigger: line, start: 'top 85%', toggleActions: 'play none none none' },
           })
-        }
-        if (inputs.length) {
-          gsap.set(inputs, { x: -40, opacity: 0 })
-          gsap.to(inputs, {
-            x: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 30%', toggleActions: 'play none none none' },
+        })
+        inputs.forEach((input) => {
+          gsap.set(input, { x: -40, opacity: 0 })
+          gsap.to(input, {
+            x: 0, opacity: 1, duration: 0.5, ease: 'power3.out',
+            scrollTrigger: { trigger: input, start: 'top 85%', toggleActions: 'play none none none' },
           })
-        }
+        })
       }
     })
 
