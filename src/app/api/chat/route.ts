@@ -1,3 +1,7 @@
+import { GoogleGenerativeAI } from '@google/generative-ai'
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
+
 const systemPrompt = `You are QaziBot, an AI assistant for Qazi Farhan Ahmad's portfolio website. You answer questions about Qazi in a natural, humanized, conversational way — like a friendly colleague who knows him well.
 
 Here is everything you know about Qazi:
@@ -53,34 +57,27 @@ export async function POST(req: Request) {
       return Response.json({ error: 'Message is required' }, { status: 400 })
     }
 
-    const res = await fetch('https://api.x.ai/v1/responses', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.XAI_API_KEY!}`,
-      },
-      body: JSON.stringify({
-        model: 'grok-4.20-reasoning',
-        input: `You are QaziBot, an AI assistant. Answer naturally and conversationally.
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
 
-${systemPrompt}
-
-User question: ${message}`,
-      }),
+    const chat = model.startChat({
+      history: [
+        {
+          role: 'user',
+          parts: [{ text: 'Here is my context: ' + systemPrompt }],
+        },
+        {
+          role: 'model',
+          parts: [{ text: 'Got it. I\'m ready to help visitors learn about Qazi.' }],
+        },
+      ],
     })
 
-    const data = await res.json()
-
-    if (!res.ok) {
-      console.error('xAI error:', data)
-      return Response.json({ error: 'API error' }, { status: 500 })
-    }
-
-    const response = data.output?.[0]?.content?.[0]?.text || 'No response generated.'
+    const result = await chat.sendMessage(message)
+    const response = result.response.text()
 
     return Response.json({ response })
   } catch (error) {
-    console.error('xAI error:', error)
+    console.error('Gemini error:', error)
     return Response.json({ error: 'Something went wrong' }, { status: 500 })
   }
 }
