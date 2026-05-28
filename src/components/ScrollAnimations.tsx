@@ -42,11 +42,14 @@ export default function ScrollAnimations() {
             scrollTrigger: { trigger: p, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (social) {
-          gsap.set(social, { y: 30, opacity: 0 })
-          gsap.to(social, {
-            y: 0, opacity: 1, duration: 0.6, ease: 'power3.out',
-            scrollTrigger: { trigger: social, start: 'top 85%', toggleActions: 'play none none none' },
+        const socialLinks = section.querySelectorAll('.inline-flex a')
+        if (socialLinks.length) {
+          socialLinks.forEach((link, i) => {
+            gsap.set(link, { y: 30, opacity: 0, scale: 0.8 })
+            gsap.to(link, {
+              y: 0, opacity: 1, scale: 1, duration: 0.5, delay: i * 0.12, ease: 'back.out(2)',
+              scrollTrigger: { trigger: link, start: 'top 85%', toggleActions: 'play none none none' },
+            })
           })
         }
         if (img) {
