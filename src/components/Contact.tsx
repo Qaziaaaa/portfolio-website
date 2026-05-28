@@ -1,3 +1,5 @@
+import { Mail, Phone } from 'lucide-react'
+
 export default function Contact() {
   return (
     <section className="relative flex flex-col-reverse items-center max-w-screen-xl px-4 mx-auto md:flex-row p-14 md:py-[60px] md:px-20" id="contact">
@@ -21,10 +23,15 @@ export default function Contact() {
           </h2>
           <p className="text-lg font-medium text-black pt-3">Let&apos;s build something great.</p>
           <p className="text-base text-gray-600">I&apos;m open to internships, freelance projects, and collaboration opportunities. If you have an idea, a project, or need a developer — let&apos;s connect and build something valuable.</p>
-          <p className="text-2xl font-medium md:pt-8">
-            <a href="mailto:qazithekingston@gmail.com" className="hover:underline">qazithekingston@gmail.com</a>
-            <br />
-            <a href="tel:+923141935787" className="hover:underline">+92 314 1935787</a>
+          <p className="text-2xl font-medium md:pt-8 space-y-3">
+            <a href="mailto:qazithekingston@gmail.com" className="flex items-center gap-3 hover:underline">
+              <Mail className="w-6 h-6" />
+              qazithekingston@gmail.com
+            </a>
+            <a href="tel:+923141935787" className="flex items-center gap-3 hover:underline">
+              <Phone className="w-6 h-6" />
+              +92 314 1935787
+            </a>
           </p>
         </div>
       </div>
