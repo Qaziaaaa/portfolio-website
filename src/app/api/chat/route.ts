@@ -61,7 +61,7 @@ export async function POST(req: Request) {
     }
 
     const completion = await xai.chat.completions.create({
-      model: 'grok-beta',
+      model: 'grok-2-latest',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: message },
