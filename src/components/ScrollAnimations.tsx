@@ -64,7 +64,6 @@ export default function ScrollAnimations() {
       if (id === 'about') {
         const img = section.querySelector('img')
         const heading = section.querySelector('h2')
-        const paragraphs = section.querySelectorAll('p')
 
         if (img) {
           gsap.set(img, { x: -80, opacity: 0 })
@@ -80,13 +79,6 @@ export default function ScrollAnimations() {
             scrollTrigger: { trigger: heading, start: 'top 80%', toggleActions: 'play none none none' },
           })
         }
-        paragraphs.forEach((p) => {
-          gsap.set(p, { y: 40, opacity: 0 })
-          gsap.to(p, {
-            y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
-            scrollTrigger: { trigger: p, start: 'top 80%', toggleActions: 'play none none none' },
-          })
-        })
       }
 
       if (id === 'skills') {
