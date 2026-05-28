@@ -30,29 +30,19 @@ export default function About() {
     if (!section) return
 
     const charSpans = section.querySelectorAll('.about-text span')
-    const lines = section.querySelectorAll('.about-line')
 
     gsap.set(charSpans, { opacity: 0 })
 
-    let totalDelay = 0
-    lines.forEach((line, lineIdx) => {
-      const chars = line.querySelectorAll('span')
-      if (!chars.length) return
-
-      gsap.to(chars, {
-        opacity: 1,
-        duration: 0.005,
-        stagger: 0.008,
-        delay: totalDelay,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: line,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      })
-
-      totalDelay += chars.length * 0.008 + 0.06
+    gsap.to(charSpans, {
+      opacity: 1,
+      duration: 0.005,
+      stagger: 0.004,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 75%',
+        toggleActions: 'play none none none',
+      },
     })
   }, [])
 
