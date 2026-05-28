@@ -1,10 +1,3 @@
-import OpenAI from 'openai'
-
-const xai = new OpenAI({
-  baseURL: 'https://api.x.ai/v1',
-  apiKey: process.env.XAI_API_KEY!,
-})
-
 const systemPrompt = `You are QaziBot, an AI assistant for Qazi Farhan Ahmad's portfolio website. You answer questions about Qazi in a natural, humanized, conversational way — like a friendly colleague who knows him well.
 
 Here is everything you know about Qazi:
@@ -60,16 +53,30 @@ export async function POST(req: Request) {
       return Response.json({ error: 'Message is required' }, { status: 400 })
     }
 
-    const completion = await xai.chat.completions.create({
-      model: 'grok-2-latest',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: message },
-      ],
-      max_tokens: 500,
+    const res = await fetch('https://api.x.ai/v1/responses', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.XAI_API_KEY!}`,
+      },
+      body: JSON.stringify({
+        model: 'grok-4.20-reasoning',
+        input: `You are QaziBot, an AI assistant. Answer naturally and conversationally.
+
+${systemPrompt}
+
+User question: ${message}`,
+      }),
     })
 
-    const response = completion.choices[0]?.message?.content || 'No response generated.'
+    const data = await res.json()
+
+    if (!res.ok) {
+      console.error('xAI error:', data)
+      return Response.json({ error: 'API error' }, { status: 500 })
+    }
+
+    const response = data.output?.[0]?.content?.[0]?.text || 'No response generated.'
 
     return Response.json({ response })
   } catch (error) {
