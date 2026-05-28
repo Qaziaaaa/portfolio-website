@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Sora } from 'next/font/google'
 import './globals.css'
 import Loader from '@/components/Loader'
+import ChatBot from '@/components/ChatBot'
 
 const sora = Sora({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${sora.className} bg-white`}>
         <Loader />
+        <ChatBot />
         {children}
       </body>
     </html>
