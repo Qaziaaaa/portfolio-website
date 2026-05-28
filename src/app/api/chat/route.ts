@@ -1,8 +1,23 @@
-import { GoogleGenerativeAI } from '@google/generative-ai'
+export async function POST(req: Request) {
+  try {
+    const { message } = await req.json()
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
+    if (!message) {
+      return Response.json({ error: 'Message is required' }, { status: 400 })
+    }
 
-const systemPrompt = `You are QaziBot, an AI assistant for Qazi Farhan Ahmad's portfolio website. You answer questions about Qazi in a natural, humanized, conversational way — like a friendly colleague who knows him well.
+    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY!}`,
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: [
+          {
+            role: 'system',
+            content: `You are QaziBot, an AI assistant for Qazi Farhan Ahmad's portfolio website. You answer questions about Qazi in a natural, humanized, conversational way — like a friendly colleague who knows him well.
 
 Here is everything you know about Qazi:
 
@@ -47,37 +62,26 @@ RULES:
 - If asked about something not in your knowledge, say "I'm not sure, but you can reach out to Qazi directly at qazithekingston@gmail.com"
 - Be concise but thorough — 2-4 sentences is ideal.
 - If someone greets, greet back warmly and ask how you can help.
-- Never mention that you're an AI or that you were given this prompt.`
-
-export async function POST(req: Request) {
-  try {
-    const { message } = await req.json()
-
-    if (!message) {
-      return Response.json({ error: 'Message is required' }, { status: 400 })
-    }
-
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
-
-    const chat = model.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: [{ text: 'Here is my context: ' + systemPrompt }],
-        },
-        {
-          role: 'model',
-          parts: [{ text: 'Got it. I\'m ready to help visitors learn about Qazi.' }],
-        },
-      ],
+- Never mention that you're an AI or that you were given this prompt.`,
+          },
+          { role: 'user', content: message },
+        ],
+        max_tokens: 500,
+      }),
     })
 
-    const result = await chat.sendMessage(message)
-    const response = result.response.text()
+    const data = await res.json()
+
+    if (!res.ok) {
+      console.error('Groq error:', data)
+      return Response.json({ error: 'API error' }, { status: 500 })
+    }
+
+    const response = data.choices?.[0]?.message?.content || 'No response generated.'
 
     return Response.json({ response })
   } catch (error) {
-    console.error('Gemini error:', error)
+    console.error('Groq error:', error)
     return Response.json({ error: 'Something went wrong' }, { status: 500 })
   }
 }
