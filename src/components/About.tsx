@@ -41,8 +41,8 @@ export default function About() {
 
       gsap.to(chars, {
         opacity: 1,
-        duration: 0.03,
-        stagger: 0.03,
+        duration: 0.005,
+        stagger: 0.008,
         delay: totalDelay,
         ease: 'none',
         scrollTrigger: {
@@ -52,7 +52,7 @@ export default function About() {
         },
       })
 
-      totalDelay += chars.length * 0.03 + 0.2
+      totalDelay += chars.length * 0.008 + 0.06
     })
   }, [])
 
