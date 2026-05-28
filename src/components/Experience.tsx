@@ -25,9 +25,9 @@ export default function Experience() {
   return (
     <section className="self-stretch bg-black overflow-hidden flex flex-row items-start justify-start md:py-[60px] md:px-20 max-w-full py-10" id="experience">
       <div className="flex-1 overflow-hidden flex flex-col items-center py-0 md:px-8 box-border gap-[20px] max-w-full">
-        <div className="self-stretch overflow-hidden flex flex-row items-center justify-center py-5 px-0 gap-[16px]">
-          <p className="text-zinc-400 text-sm font-medium uppercase tracking-widest">Journey</p>
-          <h2 className="text-white py-5 text-4xl font-bold sm:text-4xl md:text-5xl">
+        <div className="self-stretch overflow-hidden flex flex-row items-center justify-center py-5 px-6 md:px-0 gap-[16px]">
+          <p className="text-zinc-400 text-sm font-medium uppercase tracking-widest whitespace-nowrap">Journey</p>
+          <h2 className="text-white py-5 text-3xl sm:text-4xl md:text-5xl font-bold">
             <span className="font-medium">Education &amp;</span> Experience
           </h2>
         </div>
@@ -39,11 +39,11 @@ export default function Experience() {
                   <exp.icon className="w-8 h-8 text-white" />
                   <h3 className="text-left text-white md:text-2xl text-xl font-semibold leading-7">{exp.title}</h3>
                 </div>
-                <div className="self-start mt-4 md:mt-0">
-                  <p className="text-zinc-300 text-base font-semibold leading-tight">{exp.period}</p>
+                <div className="self-start mt-4 md:mt-0 md:self-center">
+                  <p className="text-zinc-300 text-sm md:text-base font-semibold leading-tight whitespace-nowrap">{exp.period}</p>
                 </div>
               </div>
-              <div className="text-justify text-base font-normal leading-normal text-zinc-300 tracking-tight">{exp.description}</div>
+              <div className="text-left md:text-justify text-base font-normal leading-normal text-zinc-300 tracking-tight">{exp.description}</div>
             </div>
           ))}
         </div>
