@@ -99,13 +99,15 @@ export default function ScrollAnimations() {
           })
         }
         const cards = section.querySelectorAll('.grid > div')
-        cards.forEach((card) => {
-          gsap.set(card, { y: 60, opacity: 0, scale: 0.85 })
-          gsap.to(card, {
-            y: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)',
-            scrollTrigger: { trigger: card, start: 'top 80%', toggleActions: 'play none none none' },
+        if (cards.length) {
+          cards.forEach((card, i) => {
+            gsap.set(card, { y: 60, opacity: 0, scale: 0.85 })
+            gsap.to(card, {
+              y: 0, opacity: 1, scale: 1, duration: 0.6, delay: i * 0.12, ease: 'back.out(1.7)',
+              scrollTrigger: { trigger: card, start: 'top 80%', toggleActions: 'play none none none' },
+            })
           })
-        })
+        }
       }
 
       if (id === 'experience') {
