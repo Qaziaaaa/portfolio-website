@@ -1,6 +1,9 @@
-import { GoogleGenerativeAI } from '@google/generative-ai'
+import OpenAI from 'openai'
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
+const xai = new OpenAI({
+  baseURL: 'https://api.x.ai/v1',
+  apiKey: process.env.XAI_API_KEY!,
+})
 
 const systemPrompt = `You are QaziBot, an AI assistant for Qazi Farhan Ahmad's portfolio website. You answer questions about Qazi in a natural, humanized, conversational way — like a friendly colleague who knows him well.
 
@@ -57,27 +60,20 @@ export async function POST(req: Request) {
       return Response.json({ error: 'Message is required' }, { status: 400 })
     }
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
-
-    const chat = model.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: [{ text: 'Here is my context: ' + systemPrompt }],
-        },
-        {
-          role: 'model',
-          parts: [{ text: 'Got it. I\'m ready to help visitors learn about Qazi.' }],
-        },
+    const completion = await xai.chat.completions.create({
+      model: 'grok-beta',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: message },
       ],
+      max_tokens: 500,
     })
 
-    const result = await chat.sendMessage(message)
-    const response = result.response.text()
+    const response = completion.choices[0]?.message?.content || 'No response generated.'
 
     return Response.json({ response })
   } catch (error) {
-    console.error('Gemini error:', error)
+    console.error('xAI error:', error)
     return Response.json({ error: 'Something went wrong' }, { status: 500 })
   }
 }
