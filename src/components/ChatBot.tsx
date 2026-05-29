@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react'
+import { MessageCircle, X, Send, Bot, User, Trash2 } from 'lucide-react'
 
 interface Message {
   role: 'user' | 'bot'
@@ -17,6 +17,10 @@ export default function ChatBot() {
   const [loading, setLoading] = useState(false)
   const endRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const reset = () => {
+    setMessages([{ role: 'bot', text: "Hey! I'm QaziBot. Ask me anything about Qazi — his work, skills, or projects." }])
+  }
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -73,9 +77,14 @@ export default function ChatBot() {
                 <span className="text-[10px] text-zinc-400 leading-tight block">AI Assistant</span>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} className="hover:opacity-70 transition-opacity" aria-label="Close chat">
-              <X className="w-5 h-5" />
-            </button>
+            <div className="flex items-center gap-2">
+              <button onClick={reset} className="hover:opacity-70 transition-opacity" aria-label="Clear chat">
+                <Trash2 className="w-4 h-4" />
+              </button>
+              <button onClick={() => setOpen(false)} className="hover:opacity-70 transition-opacity" aria-label="Close chat">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-thin [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-zinc-300 [&::-webkit-scrollbar-thumb]:rounded-full">
