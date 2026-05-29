@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Navbar />
       <ScrollAnimations />
-      <main className="space-y-10 pt-20">
+      <main className="space-y-10 pt-20 overflow-x-hidden">
         <Hero />
         <Skills />
         <Experience />
