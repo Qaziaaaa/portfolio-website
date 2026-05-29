@@ -22,7 +22,7 @@ export default function Contact() {
             Open to{' '}<span className="text-white font-sans font-outline-sm md:font-outline">Opportunities</span>
           </h2>
           <p className="text-lg font-medium text-black pt-3">Let&apos;s build something great.</p>
-          <p className="text-base text-gray-600">I&apos;m open to internships, freelance projects, and collaboration opportunities. If you have an idea, a project, or need a developer — let&apos;s connect and build something valuable.</p>
+          <p className="text-base text-zinc-600">I&apos;m open to internships, freelance projects, and collaboration opportunities. If you have an idea, a project, or need a developer — let&apos;s connect and build something valuable.</p>
           <p className="text-2xl font-medium md:pt-8 space-y-3">
             <a href="mailto:qazithekingston@gmail.com" className="flex items-center gap-3 hover:underline">
               <Mail className="w-6 h-6" />

@@ -20,15 +20,15 @@ export default function Footer() {
                 <Image className="w-auto h-14" src="/w-logo.png" width={56} height={56} alt="Logo" />
                 <p className="text-white text-4xl md:text-5xl font-bold tracking-tight">PORTFOLIO</p>
               </div>
-              <p className="text-zinc-500 text-base max-w-md leading-relaxed">
+              <p className="text-zinc-400 text-base max-w-md leading-relaxed">
                 AI Web Developer &amp; MERN Stack Expert building high-performance digital products.
               </p>
             </div>
             <div className="flex flex-col md:items-end gap-6">
               <div className="flex flex-wrap gap-8">
-                <a href="#projects" className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">Work</a>
-                <a href="#about" className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">About</a>
-                <a href="#contact" className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">Contact</a>
+                <a href="#projects" className="text-zinc-300 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">Work</a>
+                <a href="#about" className="text-zinc-300 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">About</a>
+                <a href="#contact" className="text-zinc-300 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">Contact</a>
               </div>
               <div className="flex gap-4">
                 <a href="https://www.linkedin.com/in/qazi-farhan-ahmad/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:border-white transition-colors group">

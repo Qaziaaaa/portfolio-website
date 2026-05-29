@@ -14,7 +14,7 @@ export default function Hero() {
           <h2 className="text-4xl font-extrabold md:text-5xl">
             <span className="font-normal">&amp; </span>MERN Stack Expert
           </h2>
-          <p className="text-zinc-500 text-base font-normal leading-normal tracking-tight pb-8">
+          <p className="text-zinc-600 text-base font-normal leading-normal tracking-tight pb-8">
             I build high-performance websites and AI-powered web applications that help businesses grow, automate processes, and increase conversions.
           </p>
         </div>

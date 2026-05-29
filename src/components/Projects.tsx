@@ -60,7 +60,7 @@ export default function Projects() {
           Selected<span className="font-medium"> Work</span>
         </h2>
       </div>
-      <p className="text-center text-zinc-400 text-base max-w-2xl mx-auto px-4 -mt-4">A curated selection of full-stack projects focusing on user interface, modern architecture, and blazing fast performance.</p>
+      <p className="text-center text-zinc-300 text-base max-w-2xl mx-auto px-4 -mt-4">A curated selection of full-stack projects focusing on user interface, modern architecture, and blazing fast performance.</p>
       {projects.map((proj) => (
         <div key={proj.num} className="relative">
           <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
@@ -69,7 +69,7 @@ export default function Projects() {
                 <h3 className="text-2xl font-bold tracking-tight text-white">{proj.num}</h3>
                 <div className="mt-6">
                   <h2 className="text-3xl font-bold tracking-tight text-white">{proj.title}</h2>
-                  <p className="mt-4 text-lg text-zinc-500 sm:text-sm">{proj.desc}</p>
+                  <p className="mt-4 text-lg text-zinc-400 sm:text-sm">{proj.desc}</p>
                   <div className="mt-6">
                     <a href={proj.link} target="_blank" rel="noopener noreferrer">
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="social-icon">
