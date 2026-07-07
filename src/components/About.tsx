@@ -47,20 +47,22 @@ export default function About() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative flex flex-col items-center max-w-screen-xl px-4 mx-auto md:flex-row sm:px-6 p-8 md:py-[60px] md:px-20" id="about">
-      <div className="flex items-center py-5 md:w-5/12 md:pb-20 md:pt-10 md:pl-10 md:mr-8">
-        <img src="/about.svg" alt="man with laptop" className="w-full" />
+    <section
+      ref={sectionRef}
+      className="flex flex-col items-center max-w-screen-xl mx-auto px-4 sm:px-6 md:px-20 py-12 sm:py-16 md:py-20 md:flex-row md:gap-12 lg:gap-20"
+      id="about"
+    >
+      <div className="flex items-center justify-center md:w-5/12 py-5 md:py-10">
+        <img src="/about.svg" alt="man with laptop" className="w-full max-w-sm md:max-w-full" />
       </div>
-      <div className="row items-center py-5 md:w-7/12 md:pb-20 md:pt-10">
-        <div className="text-left">
-          <h2 className="text-black text-5xl font-normal sm:text-4xl md:text-5xl leading-[56px]">
-            Building Solutions,{' '}<span className="font-extrabold">Not Just Websites</span>
-          </h2>
-          <div className="about-text text-zinc-600 text-base font-normal leading-normal tracking-tight sm:text-1xl mt-5 text-justify" style={{ overflowWrap: 'break-word' }}>
-            {paragraphs.map((text, i) => (
-              <p key={i} className="about-line mb-4 last:mb-0">{splitIntoChars(text)}</p>
-            ))}
-          </div>
+      <div className="md:w-7/12 py-5 md:py-10">
+        <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-normal leading-tight md:leading-[56px]">
+          Building Solutions,{' '}<span className="font-extrabold">Not Just Websites</span>
+        </h2>
+        <div className="about-text text-zinc-600 text-sm sm:text-base leading-relaxed tracking-tight mt-5 md:mt-6 text-justify" style={{ overflowWrap: 'break-word' }}>
+          {paragraphs.map((text, i) => (
+            <p key={i} className="about-line mb-4 last:mb-0">{splitIntoChars(text)}</p>
+          ))}
         </div>
       </div>
     </section>

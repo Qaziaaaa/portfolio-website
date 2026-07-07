@@ -11,18 +11,16 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="pt-10" id="skills">
-      <div className="relative flex flex-col items-center max-w-screen-sm px-4 mx-auto sm:px-6 p-8 md:py-[60px] md:px-20">
-        <h2 className="text-black text-4xl font-normal sm:text-4xl md:text-5xl">
-          Skills{' '}<span className="font-extrabold">&amp; Services</span>
+    <section id="skills" className="py-12 sm:py-16 md:py-20">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-20">
+        <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-normal mb-10 md:mb-14">
+          Skills <span className="font-extrabold">&amp; Services</span>
         </h2>
-      </div>
-        <div className="self-stretch overflow-hidden flex flex-col py-0 md:pb-20 px-4 sm:px-8 gap-[20px]">
-        <div className="self-stretch grid grid-cols-2 md:flex md:flex-row md:flex-wrap justify-items-center md:items-center md:justify-center py-5 box-border gap-[10px] md:gap-[71px] min-h-[492px] text-center text-xl">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row md:flex-wrap justify-center gap-4 md:gap-8">
           {skills.map((skill, i) => (
-            <div key={i} className="h-[145px] w-full max-w-[160px] md:h-[186px] md:w-[186px] md:max-w-none rounded bg-white box-border border-black flex flex-col items-center justify-center py-6 px-[22px] gap-[32px] border-[2px] border-solid border-black justify-self-center">
-              <skill.icon className="w-18 h-18 md:w-14 md:h-14 stroke-black" />
-              <b className="self-stretch relative text-sm md:text-lg">{skill.name}</b>
+            <div key={i} className="flex flex-col items-center justify-center gap-6 p-6 sm:p-8 border-2 border-black rounded bg-white aspect-square w-full max-w-[180px] md:w-[186px] md:h-[186px] mx-auto">
+              <skill.icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 stroke-black" />
+              <span className="text-sm sm:text-base md:text-lg font-bold text-center leading-tight">{skill.name}</span>
             </div>
           ))}
         </div>

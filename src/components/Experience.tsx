@@ -23,27 +23,25 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section className="self-stretch bg-black overflow-hidden flex flex-row items-start justify-start md:py-[60px] md:px-20 max-w-full py-10" id="experience">
-      <div className="flex-1 overflow-hidden flex flex-col items-center py-0 md:px-8 box-border gap-[20px] max-w-full">
-        <div className="self-stretch overflow-hidden flex flex-row items-center justify-center py-5 px-6 md:px-0 gap-[16px]">
-          <p className="text-zinc-400 text-sm font-medium uppercase tracking-widest whitespace-nowrap">Journey</p>
-          <h2 className="text-white py-5 text-3xl sm:text-4xl md:text-5xl font-bold">
+    <section className="bg-black py-12 sm:py-16 md:py-20" id="experience">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-20">
+        <div className="flex flex-col items-center text-center mb-10 md:mb-14">
+          <p className="text-zinc-400 text-sm font-medium uppercase tracking-widest mb-2">Journey</p>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold">
             <span className="font-medium">Education &amp;</span> Experience
           </h2>
         </div>
-        <div className="self-stretch overflow-hidden flex flex-col items-start justify-start py-10 px-6 gap-[32px]">
+        <div className="flex flex-col gap-6 md:gap-8">
           {experiences.map((exp, i) => (
-            <div key={i} className="self-stretch box-border flex flex-col items-start justify-start py-[30px] px-[23px] gap-[28px] max-w-full border-[1px] border-solid border-zinc-500 rounded-lg">
-              <div className="self-stretch flex md:flex-row flex-col items-center justify-between max-w-full">
-                <div className="flex flex-row items-center justify-start gap-7 max-w-full">
-                  <exp.icon className="w-8 h-8 text-white" />
-                  <h3 className="text-left text-white md:text-2xl text-xl font-semibold leading-7">{exp.title}</h3>
+            <div key={i} className="flex flex-col p-6 sm:p-8 md:p-[30px] gap-6 md:gap-7 border border-zinc-500 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-4 md:gap-7">
+                  <exp.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white shrink-0" />
+                  <h3 className="text-white text-lg sm:text-xl md:text-2xl font-semibold">{exp.title}</h3>
                 </div>
-                <div className="self-start mt-4 md:mt-0 md:self-center">
-                  <p className="text-zinc-300 text-sm md:text-base font-semibold leading-tight whitespace-nowrap">{exp.period}</p>
-                </div>
+                <p className="text-zinc-300 text-sm md:text-base font-semibold whitespace-nowrap">{exp.period}</p>
               </div>
-              <div className="text-left md:text-justify text-base font-normal leading-normal text-zinc-300 tracking-tight">{exp.description}</div>
+              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed md:text-justify">{exp.description}</p>
             </div>
           ))}
         </div>

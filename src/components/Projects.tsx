@@ -54,54 +54,62 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="overflow-hidden bg-black pt-14 pb-32 space-y-24" id="projects">
-      <div className="self-stretch overflow-hidden flex flex-row items-center justify-center py-5 px-0 gap-[16px]">
-        <h2 className="text-white py-5 text-4xl font-bold sm:text-4xl md:text-5xl">
-          Selected<span className="font-medium"> Work</span>
-        </h2>
-      </div>
-      <p className="text-center text-zinc-300 text-base max-w-2xl mx-auto px-4 -mt-4">A curated selection of full-stack projects focusing on user interface, modern architecture, and blazing fast performance.</p>
-      {projects.map((proj) => (
-        <div key={proj.num} className="relative">
-          <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
-            <div className={`mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0 ${proj.reversed ? 'lg:col-start-2' : ''}`}>
-              <div>
-                <h3 className="text-2xl font-bold tracking-tight text-white">{proj.num}</h3>
-                <div className="mt-6">
-                  <h2 className="text-3xl font-bold tracking-tight text-white">{proj.title}</h2>
-                  <p className="mt-4 text-lg text-zinc-400 sm:text-sm">{proj.desc}</p>
-                  <div className="mt-6">
-                    <a href={proj.link} target="_blank" rel="noopener noreferrer">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="social-icon">
-                        <path d="M10.8333 9.16658L17.6667 2.33325" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M18.3333 5.66675V1.66675H14.3333" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M9.16667 1.66675H7.5C3.33333 1.66675 1.66667 3.33341 1.66667 7.50008V12.5001C1.66667 16.6667 3.33333 18.3334 7.5 18.3334H12.5C16.6667 18.3334 18.3333 16.6667 18.3333 12.5001V10.8334" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+    <section className="bg-black py-16 sm:py-20 md:py-24" id="projects">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-20">
+        <div className="text-center mb-4">
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold">
+            Selected<span className="font-medium"> Work</span>
+          </h2>
+        </div>
+        <p className="text-center text-zinc-300 text-sm sm:text-base max-w-2xl mx-auto mb-12 md:mb-16">
+          A curated selection of full-stack projects focusing on user interface, modern architecture, and blazing fast performance.
+        </p>
+        <div className="flex flex-col gap-16 md:gap-24">
+          {projects.map((proj) => (
+            <div key={proj.num} className={`flex flex-col md:grid md:grid-cols-2 md:gap-8 lg:gap-16 items-center ${proj.reversed ? 'md:[&>:first-child]:order-2 md:[&>:last-child]:order-1' : ''}`}>
+              <div className={`flex flex-col ${proj.reversed ? 'md:col-start-2' : ''}`}>
+                <span className="text-white text-xl sm:text-2xl font-bold">{proj.num}</span>
+                <h3 className="text-white text-2xl sm:text-3xl font-bold mt-4">{proj.title}</h3>
+                <p className="text-zinc-400 text-sm sm:text-base mt-3 mb-6">{proj.desc}</p>
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white hover:underline w-fit"
+                >
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.8333 9.16658L17.6667 2.33325" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M18.3333 5.66675V1.66675H14.3333" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M9.16667 1.66675H7.5C3.33333 1.66675 1.66667 3.33341 1.66667 7.50008V12.5001C1.66667 16.6667 3.33333 18.3334 7.5 18.3334H12.5C16.6667 18.3334 18.3333 16.6667 18.3333 12.5001V10.8334" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Live Demo
+                </a>
               </div>
-            </div>
-            <div className="mt-12 sm:mt-16 lg:mt-0">
-              <div className="mx-4 md:mx-2 lg:relative lg:m-0 lg:h-full lg:px-0">
-                <a href={proj.link} target="_blank" rel="noopener noreferrer" className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none bg-zinc-800 flex items-center justify-center overflow-hidden group cursor-pointer" style={{ minHeight: '200px' }}>
+              <div className={`mt-6 md:mt-0 ${proj.reversed ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 bg-zinc-800 overflow-hidden group cursor-pointer relative"
+                  style={{ minHeight: '200px' }}
+                >
                   {proj.svg}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 text-white text-sm font-medium">
+                    <span className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 text-white text-sm font-medium">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.66667 6.66667L14 1.33333" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M14.6667 4V1.33333H12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M14 8.53333V12C14 13.1046 13.1046 14 12 14H4C2.89543 14 2 13.1046 2 12V4C2 2.89543 2.89543 2 4 2H7.46667" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M14 8.53333V12C14 13.1046 13.1046 14 12 14H4C2.89543 2 2 13.1046 2 12V4C2 2.89543 2.89543 2 4 2H7.46667" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       Live Demo
-                    </div>
+                    </span>
                   </div>
                 </a>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+      </div>
     </section>
   )
 }
